@@ -49,5 +49,5 @@ app.get('/api/prediction/:fixtureId', async (req, res) => {
     res.json({ provider: 'API-Football', fixtureId: Number(req.params.fixtureId), prediction: result.predictions, comparison: result.comparison, teams: result.teams, league: result.league });
   } catch (error) { res.status(502).json({ error: error.message || 'Unable to load prediction.' }); }
 });
-app.get('*', (_req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
-app.listen(PORT, () => console.log(`VixPredict running on port ${PORT}`));
+app.get('/{*splat}', (_req, res) => res.sendFile(
+app.listen(PORT, () => console.log(`VixPredict running on port ${PORT}`
